@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+john: 
+  username: bluesky
+  email: john@google.com
+
+archer:
+  username: oaktree
+  email: archer@razer.com

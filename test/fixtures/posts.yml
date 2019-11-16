@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+red:
+  title: How to wake up early
+  body: You are wasting your time when you dont wake up
+  user: john
+
+green:
+  title: How to make spaghetti
+  body: Take two cups full of water and spaghetti
+  user: archer
