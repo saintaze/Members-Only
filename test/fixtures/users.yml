@@ -3,7 +3,9 @@
 john: 
   username: bluesky
   email: john@google.com
+  password_digest:  <%= User.digest('foobar') %>
 
 archer:
   username: oaktree
   email: archer@razer.com
+  password_digest:  <%= User.digest('foobar') %>

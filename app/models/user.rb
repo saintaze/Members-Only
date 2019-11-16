@@ -18,6 +18,23 @@ class User < ApplicationRecord
                     uniqueness: {case_sensitive: false}, 
                     format: {with: EMAIL_REGEX},
                     length: {maximum: 255}
+
+  has_secure_password
+
+  # validates password
+  validates :password, presence: true,
+                       length: {minimum: 6}
+
+  
+  #/// CLASS METHODS ////#
+
+  def self.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
+
+  
+
   private
   
       def downcase_fields

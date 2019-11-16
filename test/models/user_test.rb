@@ -2,13 +2,15 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   def setup 
-    @user = users(:john)
+    @user = User.new(username: "hopkins", email: "john@hopkins.com",
+                     password: "foobar", password_confirmation: "foobar")
   end
 
   test "should be valid" do
     assert @user.valid?
   end
 
+  # Username tests
   test "username should be present (neither empty nor blank)" do
     @user.username = '    '
     assert_not @user.valid?
@@ -32,6 +34,7 @@ class UserTest < ActiveSupport::TestCase
     assert @user.reload.username, downcased_username
   end
 
+  # Email tests
   test "email should be present (neither empty nor blank)" do
     @user.email = '    '
     assert_not @user.valid?
@@ -63,7 +66,26 @@ class UserTest < ActiveSupport::TestCase
     assert @user.reload.email, downcased_email
   end
 
+  # Password tests
+  test "password must be minimum 6 chars" do
+    @user.password =  @user.password_confirmation = 'a' * 5
+    assert_not @user.valid?
+  end
+
+  test "password must be present (neither blank nor empty)" do
+    @user.password = @user.password_confirmation = nil
+    assert_not @user.valid?
+  end
+
+  test "password authenticate" do
+    @user.save
+    assert !!@user.authenticate('foobar')
+  end
+
+  # Associations tests
   test "associated posts must be destroyed" do
+    @user.save
+    @post = @user.posts.create!(title: "Angular 9", body: "lets look at Angular 9!")
     assert_difference "Post.count", -1 do
       @user.destroy
     end
