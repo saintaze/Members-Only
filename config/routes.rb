@@ -3,4 +3,6 @@ Rails.application.routes.draw do
 
   get '/contact', to: 'static_pages#contact'
   get '/about', to: 'static_pages#about'
+
+  resources :users, only: [:new, :create]
 end
