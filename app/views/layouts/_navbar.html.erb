@@ -19,8 +19,8 @@
     </ul>
     
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item active">
-        <%= link_to 'Signup', "#", class: "nav-link"%>
+      <li class="nav-item">
+        <%= link_to 'Signup', signup_path, class: "nav-link #{active_link?(signup_path)}"%>
       </li>
       <li class="nav-item">
         <%= link_to 'Login', "#", class: "nav-link"%>
