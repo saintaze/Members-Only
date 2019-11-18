@@ -1,0 +1,14 @@
+<% if @posts.any? %>
+  <% @posts.each_with_index do |post, i|%>
+    <div class="col-md-8 offset-md-2">
+      <div class="card border-<%= border_color(i) %> mb-4 text-center">
+        <div class="card-header"><%= post.user.username %></div>
+        <div class="card-body">
+          <h4 class="card-title"><%= post.title %></h4>
+          <p class="card-text"><%= post.body %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+

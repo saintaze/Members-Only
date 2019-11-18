@@ -6,8 +6,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:success] = "Welcome to the club! You are now part of the select few. •͡˘㇁•͡˘"
-      redirect_to root_url
+      flash[:success] = "Welcome to the club! You are now part of the select few.  •͡˘㇁•͡˘"
+      redirect_to posts_url
 
       #on successful creation he should be logged in 
       # and take to post creation form
