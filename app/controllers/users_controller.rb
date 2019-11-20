@@ -7,10 +7,11 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:success] = "Welcome to the club! You are now part of the select few.  •͡˘㇁•͡˘"
+      login @user
       redirect_to posts_url
 
       #on successful creation he should be logged in 
-      # and take to post creation form
+      # and take t creation form
     else 
       render 'new'
     end
@@ -20,5 +21,7 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:username, :email, :password, :password_confirmation)
     end
+
+    
 
 end

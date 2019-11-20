@@ -1,23 +1,43 @@
-<div class="card bg-light mb-3 contact-card">
+<div class="card bg-light mb-3 contact-card col-md-8 offset-md-2">
   <h1 class="card-header">Contact Info</h1>
-  <div class="card-body">
-    <p class="lead">Contact us and we will get back to you as soon as possible.</p>
-    <div class="contact-icon-box">
-      <i class="fas fa-envelope"></i>
-      <span><%= link_to 'Email', "mailto:ayezahmed101@gmail.com" %></span>
+  <div class="card-body ">
+    <p>Its no surpirse that you want to contact us.</p>
+    <div class="row">
+      <div class="col-md-8">
+        <p class="lead">
+          You feel you are in the right place to share your thoughts with the secret community. You know you can't hold it back amymore. You want it out.
+        </p>
+        <p>
+          <strong>We say do it!</strong>
+        </p>
+        <p class="lead">
+          But then perhaps, you want to know the community better. You want to make sure it's the right call.
+        </p>
+        <p>
+          Fear not you can check us out on differnt platforms by visiting some of the links on the right 
+          &nbsp; &rarr;
+        </p>
+      </div>
+      <div class="col-md-4 d-flex align-items-end">
+         <div class="contact-icon-box">
+          <i class="fas fa-envelope"></i>
+          <span><%= link_to 'Email', "mailto:ayezahmed101@gmail.com" %></span>
+        </div>
+        <div class="contact-icon-box">
+          <i class="fab fa-github"></i>
+          <span><%= link_to 'Github', "https://github.com/saintaze", target: "_blank"%> </span>
+        </div>
+        <div class="contact-icon-box">
+          <i class="fab fa-dev"></i>
+          <span><%= link_to 'Dev.to', "https://dev.to/saintaze", target: "_blank"%> </span>
+        </div>
+        <div class="contact-icon-box">
+          <i class="fab fa-medium"></i>
+          <span><%= link_to 'Medium', "https://medium.com/@ayezahmed101", target: "_blank"%> </span>
+        </div>    
+      </div>
     </div>
-      <div class="contact-icon-box">
-        <i class="fab fa-github"></i>
-        <span><%= link_to 'Github', "https://github.com/saintaze", target: "_blank"%> </span>
-      </div>
-      <div class="contact-icon-box">
-        <i class="fab fa-dev"></i>
-        <span><%= link_to 'Dev.to', "https://dev.to/saintaze", target: "_blank"%> </span>
-      </div>
-      <div class="contact-icon-box">
-        <i class="fab fa-medium"></i>
-        <span><%= link_to 'Medium', "https://medium.com/@ayezahmed101", target: "_blank"%> </span>
-      </div>
+      
     </p>
   </div>
 </div>

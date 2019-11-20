@@ -9,6 +9,7 @@ require("@rails/activestorage").start()
 require("channels")
 
 import "@fortawesome/fontawesome-free/css/all.css";
+import "jquery/dist/jquery.slim"
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

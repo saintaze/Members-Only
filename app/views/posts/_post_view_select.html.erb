@@ -1,0 +1,24 @@
+<form action="/posts" method="post" class="view-form mt-1 position-absolute">
+  <fieldset class="form-group view-fieldset">
+  <legend class="view-legend ">View Type</legend>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input view-option" name="view_type" id="optionsRadios1" value="all">
+        <strong>All Posts</strong>
+      </label>
+    </div>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input view-option" name="view_type" id="optionsRadios1" value="paginated" checked>
+        <strong>Paginated Posts</strong>
+      </label>
+    </div>
+    <div class="form-check">
+      <label class="form-check-label"> 
+        <input type="radio" class="form-check-input view-option" name="view_type" id="optionsRadios2" value="story">
+        <strong>Story Posts</strong>
+      </label>
+    </div>
+  </fieldset>
+  <a href="" class="btn btn-outline-success view-btn">View</a>
+</form>

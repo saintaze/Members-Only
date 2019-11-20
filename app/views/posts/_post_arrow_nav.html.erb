@@ -1,0 +1,12 @@
+<div class="d-flex justify-content-center my-5">
+  <div class="m-auto">
+    <ul class="pagination pagination-lg">
+      <li class="page-item <%= @page == 1 ? 'disabled' : '' %>">
+        <%= link_to "«", posts_path(view: 'story', page: @page - 1), class: "page-link" %>
+      </li>
+      <li class="page-item <%= @page == @post_pages ? 'disabled' : '' %>">
+        <%= link_to "»", posts_path(view: 'story', page: @page + 1), class: "page-link" %>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+ <div class="post-stats mt-1 position-absolute">
+    <legend class="view-legend">Post Stats</legend>
+    <div>
+      <span class="post-stats-label">Total:</span>  
+      <strong class="post-stats-vals"> <%= @posts_count.to_i %> </strong>
+    </div>
+    <% unless @view == 'all' %>
+      <div>
+        <span class="post-stats-label">On Page:</span> 
+        <strong class="post-stats-vals"> <%= @posts.count %> </strong>
+      </div>
+      <div>
+        <span class="post-stats-label">Remaining:</span> 
+        <strong class="post-stats-vals"> <%= @posts_remaining %> </strong>
+      </div>
+      <div>
+        <span class="post-stats-label">Seen:</span> 
+        <strong class="post-stats-vals"> <%= @posts_served >= @posts_count ? 'All' : @posts_served %> </strong>
+      </div>
+    <% end %>
+ </div>
+
+

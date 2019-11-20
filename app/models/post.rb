@@ -10,5 +10,8 @@ class Post < ApplicationRecord
                     uniqueness: {case_sensitive: false}
   
   # body validation
-  validates :body, presence: true              
+  validates :body, presence: true
+  
+  default_scope -> { order(created_at: :desc) }
 end
+
