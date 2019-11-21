@@ -208,3 +208,17 @@ a:hover {
   display: inline-block;
   transform: translateX(14px);
 }
+
+
+.error-404 h1{
+  font-size: 14rem;
+  color: #cc1515;
+  font-family: monospace;
+  letter-spacing: -15px;
+}
+
+.error-404 h2{
+  font-family: serif;
+  padding-left: 10rem;
+  padding-top: 2rem;
+}
