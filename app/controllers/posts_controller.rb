@@ -10,8 +10,18 @@ class PostsController < ApplicationController
     elsif @view == 'story'
       post_arrow_nav     
     elsif @view == 'all'
-      @posts = Post.all
+
+      @posts = Post.search(params[:search])
       @posts_count ||= @posts.count
+
+      if params[:search] && @posts_count == Post.count
+        @search_posts_not_found = true
+      elsif params[:search] && @posts_count > 0
+        @search_posts_found = true
+      end
+      
+     
+      
     end
   end
 
@@ -22,7 +32,7 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-      flash[:success] = "Post Created: Now you are part of the secret order!"
+      flash[:success] = "Post created! It feels great to share secrets."
       redirect_to posts_url
     else
       render 'new'

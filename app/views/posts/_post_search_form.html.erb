@@ -1,0 +1,18 @@
+<div class="">
+  <div class="col-md-8 offset-md-2 ">
+    <form action="/posts" accept-charset="UTF-8" method="get" class="search-form">
+      <input type="hidden" name="view", value="all">
+      <div class="form-group">
+        <input class="form-control" placeholder="Search term" type="search" name="search" id="search">
+        <input type="submit" value="Search" class="btn btn-dark search-btn" data-disable-with="submit">
+      </div>
+      <% if @search_posts_found %>
+        <div class="valid-feedback">Success! You hit a jackpot.</div>
+      <% end %>
+
+      <% if @search_posts_not_found %>
+        <div class="invalid-feedback">Sorry! No relevant posts found. Showing all. Try another term?</div>
+      <% end %>  
+    </form>
+  </div>
+</div>

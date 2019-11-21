@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: params[:session][:email])
     if @user && @user.authenticate(params[:session][:password])
       login @user
-      flash[:success] = 'Welcome back! Hope you enjoy your stay!'
+      flash[:success] = 'Welcome! It\'s great that you wish to read/share scerets.'
       redirect_to posts_url
     else
       flash.now[:danger] = "Invalid email/password submission"

@@ -1,28 +1,34 @@
-
 <% if @posts.any? %>
 
-  <%= render 'post_view_select' if logged_in? %>
-  <%= render 'post_stats' if logged_in? %>
-  
-  <% @posts.each_with_index do |post, i|%>
+<% if logged_in? %>
+  <%= render 'post_search_form' %>
+  <div class="post-options row">
+    <%= render 'post_view_select' %>
+    <%= render 'post_stats' %>
+  </div>
+<% end %>
+
+  <div class="">
     <div class="col-md-8 offset-md-2 ">
-      <div class="card border-<%= border_color(i) %> mb-4 text-center">
-        <div class="card-header d-flex justify-content-between">
-          <div class="author">by / <%= logged_in? ? post.user.username : post.user.hidden_name  %></div>
-          <div class="time">           
-            <% if logged_in? %>
-              <%= time_ago_in_words(post.created_at) %> ago
-            <% end %>
+      <% @posts.each_with_index do |post, i|%>
+        <div class="card border-<%= border_color(i) %>  text-center" style="margin-bottom: 1.9rem">
+          <div class="card-header d-flex justify-content-between">
+            <div class="author">by / <%= logged_in? ? post.user.username : post.user.hidden_name  %></div>
+            <div class="time">           
+              <% if logged_in? %>
+                <%= time_ago_in_words(post.created_at) %> ago
+              <% end %>
+            </div>
+          </div>
+          <div class="card-body">
+            <h2 class="post-heading"><%= post.title %></h2>
+            <h4 class="card-title"><%= i + 1 %> </h4>
+            <p class="card-text"><%= post.body %></p>
           </div>
         </div>
-        <div class="card-body">
-          <h2 class="post-heading"><%= post.title %></h2>
-          <h4 class="card-title"><%= (@posts_count.to_i - post.id) + 1 %></h4>
-          <p class="card-text"><%= post.body %></p>
-        </div>
-      </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
 
   <% if @view == 'paginated' %>
     <%= render 'post_pagination_nav' %>
@@ -30,19 +36,34 @@
     <%= render 'post_arrow_nav' %>
   <% end %>
 
+<% else %>
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <p>Be the first member to share your secret!</p>
+    </div>
+  </div>
 <% end %>
 
 
 <script type="text/javascript">
-
+  var searchBtn = document.querySelector('.search-btn');
   var viewBtn = document.querySelector('.view-btn');
+  var allViewOption = document.querySelector(`input[type="radio"][value="all"]`);
+
   var params = new URLSearchParams(window.location.search);
   var view = params.get('view') || 'paginated';
+  if(view === 'all'){
+    allViewOption.checked = true
+  }
   var viewOption = document.querySelector(`[value=${view}]`)
   viewOption.checked = true;
 
   $('.view-option').on("change", function() {
      viewBtn.search = '?view=' + this.value
   });
-
+  $('.search-btn').on("click", function() {
+     allViewOption.checked = true
+  });
 </script>
+
+

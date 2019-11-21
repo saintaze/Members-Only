@@ -49,8 +49,10 @@ class User < ApplicationRecord
       end
 
       def hide_name
-        self.hidden_name = User.new_hidden_name
+        # self.hidden_name = User.new_hidden_name
+         self.hidden_name = "(login to see name)"
       end
 
       
 end
+

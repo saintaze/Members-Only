@@ -13,5 +13,15 @@ class Post < ApplicationRecord
   validates :body, presence: true
   
   default_scope -> { order(created_at: :desc) }
+
+  def self.search(pattern)
+    if pattern.blank?
+      Post.all
+    else
+      posts = Post.all.where("title like ? or body like ?", "%#{pattern}%", "%#{pattern}%")
+      posts.count == 0 ?  Post.all : posts
+    end
+  end
+
 end
 

@@ -2209,7 +2209,7 @@ textarea.form-control {
 }
 
 .valid-feedback {
-  display: none;
+  /* display: none; */
   width: 100%;
   margin-top: 0.25rem;
   font-size: 80%;
@@ -2336,7 +2336,7 @@ textarea.form-control {
 }
 
 .invalid-feedback {
-  display: none;
+  /* display: none; */
   width: 100%;
   margin-top: 0.25rem;
   font-size: 80%;
@@ -7035,6 +7035,10 @@ button.bg-dark:focus {
 
 .border-primary {
   border-color: #158CBA !important;
+  /* border-top: 2px solid #158CBA !important;
+  border-bottom: 3px solid #158CBA !important;
+  border-right: 1px solid #158CBA !important;
+  border-left: 1px solid #158CBA !important; */
 }
 
 .border-secondary {
@@ -7043,6 +7047,10 @@ button.bg-dark:focus {
 
 .border-success {
   border-color: #28B62C !important;
+  /* border-top: 2px solid #28B62C  !important;
+  border-bottom: 3px solid #28B62C  !important;
+  border-right: 1px solid #28B62C  !important;
+  border-left: 1px solid #28B62C  !important; */
 }
 
 .border-info {
@@ -7051,10 +7059,18 @@ button.bg-dark:focus {
 
 .border-warning {
   border-color: #FF851B !important;
+    /* border-top: 2px solid #FF851B !important;
+  border-bottom: 3px solid #FF851B !important;
+  border-right: 1px solid #FF851B !important;
+  border-left: 1px solid #FF851B !important; */
 }
 
 .border-danger {
   border-color: #FF4136 !important;
+    /* border-top: 2px solid #FF4136 !important;
+  border-bottom: 3px solid #FF4136 !important;
+  border-right: 1px solid #FF4136 !important;
+  border-left: 1px solid #FF4136 !important; */
 }
 
 .border-light {
@@ -7063,6 +7079,10 @@ button.bg-dark:focus {
 
 .border-dark {
   border-color: #555 !important;
+    /* border-top: 2px solid #555 !important;
+  border-bottom: 3px solid #555 !important;
+  border-right: 1px solid #555 !important;
+  border-left: 1px solid #555 !important; */
 }
 
 .border-white {
