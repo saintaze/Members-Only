@@ -1,24 +1,37 @@
-# README
+# Members-Only (Secret-Club)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+In this exclusive club, members can share their secret thoughts about non-members. Insiders can see who the author of a post is but, outsiders can only see the secret and wonder who wrote it.
 
-Things you may want to cover:
+# Built With
+ - Ruby on Rails 6
 
-* Ruby version
+## Installation
 
-* System dependencies
+- Clone repo and run `bundle install`. 
 
-* Configuration
+## Model Tests
 
-* Database creation
+I decided to implement specs early on during the creation of each `Model`.
 
-* Database initialization
+- Run `rails test:models` in the console to verify that tests pass. 
 
-* How to run the test suite
+## Model Design
 
-* Services (job queues, cache servers, search engines, etc.)
+- The site can have users. 
+- Users can make posts. 
 
-* Deployment instructions
+### Features
++ Clean looking UI
++ Search field to quickly search for a post(s).
++ Supprt 3 distinct post views (all, paginated, story).
++ Post stats to provide quick overview about posts
++ Full athentication and authorization flow
++ Remember-Me feature to persist session
++ Admin who can delete all or a single post
++ Entire pagination feature is self-written (no gem) 
++ Web content is self-written
 
-* ...
+
+
+# Author
++ Saintaze [@saintaze](https://github.com/saintaze/)
