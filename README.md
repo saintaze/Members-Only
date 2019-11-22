@@ -31,7 +31,8 @@ I decided to implement specs early on during the creation of each `Model`.
 + Entire pagination feature is self-written (no gem) 
 + Web content is self-written
 
-
+#Live Version
+#### URL [Start sharing secrets](https://secretclub.herokuapp.com/)
 
 # Author
 + Saintaze [@saintaze](https://github.com/saintaze/)
