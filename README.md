@@ -32,7 +32,7 @@ I decided to implement specs early on during the creation of each `Model`.
 + Web content is self-written
 
 #Live Version
-#### URL [Start sharing secrets](https://secretclub.herokuapp.com/)
+#### URL [Start Sharing Secrets](https://secretclub.herokuapp.com/)
 
 # Author
 + Saintaze [@saintaze](https://github.com/saintaze/)
