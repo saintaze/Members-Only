@@ -8,7 +8,12 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:session][:password])
       login @user
       params[:session][:remember_me] == '1' ? remember(@user) : forget(@user)
-      flash[:success] = "Welcome #{@user.username}! It\'s great that you wish to read/share scerets."
+      if @user.admin?
+        message = "Welcome #{@user.username.capitalize}! So you are looking to delete some secrets?"
+      else
+        message = "Welcome #{@user.username}! It\'s great that you wish to read/share scerets."
+      end
+      flash[:success] = message
       redirect_to posts_url
     else
       flash.now[:danger] = "Invalid email/password submission"
