@@ -1,9 +1,9 @@
  @import "bootstrap";
  @import "variables";
 
-// body{
-//   background-color: #f9c42e;
-// }
+body{
+  // background-color: #f9c42e;
+}
 
 .contact-card a{
   font-size: 15px;
@@ -138,6 +138,10 @@ a:hover {
   font-weight: 100;
   display: inline-block;
   transform: translateY(9px);
+}
+
+.signup-btn {
+    margin-bottom: 5rem !important;
 }
 
 .field_with_errors input, , .field_with_errors textarea{
