@@ -7,7 +7,8 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: params[:session][:email])
     if @user && @user.authenticate(params[:session][:password])
       login @user
-      flash[:success] = 'Welcome! It\'s great that you wish to read/share scerets.'
+      params[:session][:remember_me] == '1' ? remember(@user) : forget(@user)
+      flash[:success] = "Welcome #{@user.username}! It\'s great that you wish to read/share scerets."
       redirect_to posts_url
     else
       flash.now[:danger] = "Invalid email/password submission"
@@ -16,7 +17,10 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    logout
+    if logged_in?
+      forget current_user
+      logout
+    end
     redirect_to root_url
   end
 

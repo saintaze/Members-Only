@@ -22,4 +22,6 @@ test:
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  database: secret_club
+  username: secret_club
+  password: <%= ENV['SECRET_CLUB_DATABASE_PASSWORD'] %>

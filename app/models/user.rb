@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  attr_accessor :filtered_username, :killer
+  attr_accessor :remember_token
   
   # user has many posts and comments association
   has_many :posts,    dependent: :destroy
@@ -28,6 +28,20 @@ class User < ApplicationRecord
                        length: {minimum: 6}
 
   
+  def authenticated?(token)
+    return unless remember_digest
+    BCrypt::Password.new(remember_digest).is_password?(token)
+  end
+
+  def remember
+    self.remember_token = User.new_token
+    self.update_attribute(:remember_digest, User.digest(remember_token))
+  end
+  
+  def forget
+    self.update_attribute(:remember_digest, nil)
+  end
+
   #/// CLASS METHODS ////#
 
   def self.digest(string)
@@ -41,6 +55,10 @@ class User < ApplicationRecord
     [*letters, *numbers].shuffle[0, 7].join
   end  
 
+  def self.new_token
+    SecureRandom.urlsafe_base64
+  end
+
   private
   
       def downcase_fields
@@ -51,8 +69,6 @@ class User < ApplicationRecord
       def hide_name
         # self.hidden_name = User.new_hidden_name
          self.hidden_name = "(login to see name)"
-      end
-
-      
+      end   
 end
 

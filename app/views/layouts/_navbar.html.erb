@@ -20,9 +20,15 @@
     
     <ul class="navbar-nav ml-auto">
       <% if logged_in? %>
-        <li class="nav-item">
-          <%= link_to 'New Post', new_post_path, class: "nav-link #{active_link?(new_post_path)}"%>
-        </li>
+        <% if current_user.admin? && params[:action] == 'index' && Post.count > 0 %>
+          <li class="nav-item">
+            <%= link_to 'Delete All', post_path('all'), class: "btn btn-secondary text-dark delete-btn nav-link", method: :delete, data: {confirm: "Are you sure?"}, style: 'color: white; margin-right: 0.4rem' %>
+          </li>
+        <% elsif !current_user.admin? %>
+          <li class="nav-item">
+            <%= link_to 'New Post', new_post_path, class: "nav-link #{active_link?(new_post_path)}"%>
+          </li>
+        <% end %>
         <li class="nav-item">
           <%= link_to 'Logout', logout_path, class: "nav-link", method: :delete %>
         </li>
