@@ -18,7 +18,7 @@ class Post < ApplicationRecord
     if pattern.blank?
       Post.all
     else
-      posts = Post.all.where("title like lower(?) or body like lower(?)", "%#{pattern.downcase}%", "%#{pattern.downcase}%")
+      posts = Post.all.where("title ilike lower(?) or body like lower(?)", "%#{pattern.downcase}%", "%#{pattern.downcase}%")
       posts.count == 0 ?  Post.all : posts
     end
   end
