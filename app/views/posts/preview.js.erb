@@ -1,0 +1,18 @@
+$('.container').html(`
+<div class="col-md-8 offset-md-2">
+  <div class="card border-danger  text-center" style="margin-bottom: 1.9rem">
+      <div class="card-header d-flex justify-content-between">
+        <div class="author">by / <%= current_user.username %></div>                  
+        <div class="time ">
+          <%= time_ago_in_words(Time.zone.now) %> ago           
+        </div>
+      </div>
+      <div class="card-body">
+        <h2 class="post-heading"> <%= params[:post][:title] %> </h2>
+        <h4 class="card-title"> 1 </h4>
+        <p class="card-text"><%= params[:post][:body] %></p>
+      </div>
+    </div>
+  </div>
+  <a href="posts/new" class="btn btn-warning preview-btn">Back</a>
+`)
