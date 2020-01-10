@@ -35,4 +35,4 @@ I decided to implement specs early on during the creation of each `Model`.
 #### URL [Start Sharing Secrets](https://secretclub.herokuapp.com/)
 
 # Author
-+ Saintaze [@saintaze](https://github.com/saintaze/)
+Saintaze [@saintaze](https://github.com/saintaze/)
